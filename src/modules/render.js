@@ -5,7 +5,7 @@ import parseISO from 'date-fns/parseISO';
 import storage from './storage';
 import { prArea, formPr, todoH, addF, updtButton, proFa } from './dom-select';
 import Project from './project';
-​
+
 function contentChange(tag, head, pro, addF) {
   tag.addEventListener('click', () => {
     changeHeader(head, pro);
@@ -15,7 +15,7 @@ function contentChange(tag, head, pro, addF) {
     addF.classList.remove('d-none');
   });
 }
-​
+
 function removeProject(tag, pro, todoH, addF) {
   tag.addEventListener('click', e => {
     _.remove(storage, n => n == pro);
@@ -27,20 +27,20 @@ function removeProject(tag, pro, todoH, addF) {
     addF.classList.toggle('d-none');
   });
 }
-​
+
 function changeHeader(tag, pro) {
   tag.innerHTML = pro.name.toUpperCase();
 }
-​
+
 function clearContent(items) {
   items.forEach(item => item.remove());
 }
-​
+
 function findTodos() {
   const items = document.querySelectorAll('.todo-item');
   return items;
 }
-​
+
 function renderToDo(todo) {
   const div = document.createElement('div');
   div.classList.add(
@@ -89,12 +89,12 @@ function renderToDo(todo) {
       localStorage.setItem('projectList', JSON.stringify(storage));
     });
   });
-​
+
   const span = document.createElement('span');
   const span2 = document.createElement('span');
   span2.classList.add('px-2', 'w-50', 'ml-2');
   span2.innerHTML = todo.title;
-​
+
   const itag = document.createElement('i');
   if (todo.isDone) {
     itag.classList.add('fas', 'fa-check-circle', 'ml-2', 'text-success');
@@ -102,7 +102,7 @@ function renderToDo(todo) {
   } else {
     itag.classList.add('far', 'fa-circle', 'ml-2'); // fas fa-check-circle
   }
-​
+
   itag.addEventListener('click', e => {
     e.target.classList.toggle('far');
     e.target.classList.toggle('fa-circle');
@@ -119,7 +119,7 @@ function renderToDo(todo) {
   span3.innerHTML = format(parseISO(todo.date), 'PP');
   const span4 = document.createElement('span');
   span4.innerHTML = todo.status;
-​
+
   const span5 = document.createElement('span');
   span5.classList.add('text-secondary');
   const iTag = document.createElement('i');
@@ -157,7 +157,7 @@ function renderPro(pro) {
   div.appendChild(span);
   prArea.appendChild(div);
 }
-​
+
 function createProject() {
   const prInput = document.querySelector('.prInput');
   if (prInput.value === '') {
@@ -172,5 +172,5 @@ function createProject() {
     renderPro(pro);
   }
 }
-​
+
 export { renderPro, renderToDo, createProject };

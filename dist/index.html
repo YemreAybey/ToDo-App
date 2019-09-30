@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Document</title>
+    <script
+      src="https://kit.fontawesome.com/a622b02183.js"
+      crossorigin="anonymous"
+    ></script>
+    <link rel="stylesheet" href="style.css">
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+      integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
+      crossorigin="anonymous"
+    />
+  </head>
+  <body class="bg-dark">
+    <header
+      class="bg-light border-bottom border-primary d-flex justify-content-between align-items-center pt-2"
+    >
+      <h1 class="ml-5 text-dark d-inline-block">ToDo App</h1>
+      <span class="mr-5" style="font-size: 3em; color: Dodgerblue;">
+        <i class="fas fa-calendar-check fa-2x"></i>
+      </span>
+    </header>
+    <div class="container mt-3">
+      <div class="row">
+        <div class="col-12 col-sm-6 col-md-5 mb-5 col-lg-3">
+          <div class="border-bottom border-secondary">
+            <h4
+              class="text-info d-flex justify-content-between align-items-center"
+            >
+              Projects
+              <span class="text-warning btn btn-primary">
+                <i class="fas fa-plus pro-fa"></i>
+              </span>
+            </h4>
+          </div>
+          <div id="projects" class="mt-2">
+            <div id="prForm" class="text-success d-none">
+              Project Name :
+              <input type="text" class="prInput" />
+              <input
+                type="submit"
+                id="prSub"
+                class="btn btn-primary mt-2"
+                value="Create"
+              />
+            </div>
+          </div>
+        </div>
+        <div
+          class="col-12 offset-lg-1 col-lg-8 border-left border-secondary mt-5 mt-sm-0"
+        >
+          <div class="border-bottom border-secondary">
+            <h6 class="text-info todoH">WELCOME</h6>
+          </div>
+          <div class="p-2 text-info tasks">
+            <div class="d-none todoForm">
+              <label for="toDoText" class="text-info">Task :</label>
+              <input type="text" class="w-75 form-control-sm" id="toDoText" />
+              <br />
+
+              <label for="desText1" class="text-info">Desc :</label>
+              <input type="text" class="w-75 form-control-sm" id="desText1" />
+              <br />
+
+              <label for="date" class="text-info">Date :</label>
+              <input type="date" id="date" />
+              <div class="form-check form-check-inline ml-3">
+                <input
+                  class="form-check-input"
+                  type="radio"
+                  name="inlineRadioOptions"
+                  id="inlineRadio1"
+                  value="Normal"
+                />
+                <label class="form-check-label" for="inlineRadio1"
+                  >Normal</label
+                >
+              </div>
+              <div class="form-check form-check-inline">
+                <input
+                  class="form-check-input"
+                  type="radio"
+                  name="inlineRadioOptions"
+                  id="inlineRadio2"
+                  value="Normal"
+                />
+                <label class="form-check-label" for="inlineRadio2"
+                  >Urgent</label
+                >
+              </div>
+              <br />
+              <div class="d-flex justify-content-center  mt-3">
+                <span class="btn btn-primary mr-3" id="saveTodo">
+                  SAVE
+                </span>
+                <span class="btn btn-success" id="closeTodo"> CLOSE </span>
+              </div>
+            </div>
+            <div class="border-bottom border-secondary addF">
+              <span class="text-success mr-2 to-fa">
+                <i class="fas fa-plus"></i>
+              </span>
+              Add ToDo
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+
+    <div class="modal" id="mymodal">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title">Update Your Task</h5>
+            <button class="close" data-dismiss="modal">&times</button>
+          </div>
+          <div class="modal-body">
+
+            <div class="uptForm">
+              <label for="uptText" class="text-dark">Task :</label>
+              <input type="text" class="w-75 form-control-sm" id="uptText" />
+              <br />
+              <label for="uptDesc" class="text-dark">Desc :</label>
+              <input type="text" class="w-75 form-control-sm" id="uptDesc" /><br />
+              <label for="uptDate" class="text-dark">Date :</label>
+              <input type="date" id="uptDate" />
+              <div class="form-check form-check-inline ml-3">
+                <input
+                  class="form-check-input"
+                  type="radio"
+                  name="inlineRadioOptions"
+                  id="inlineRadio3"
+                  value="Normal"
+                />
+                <label class="form-check-label" for="inlineRadio3"
+                  >Normal</label
+                >
+              </div>
+              <div class="form-check form-check-inline">
+                <input
+                  class="form-check-input"
+                  type="radio"
+                  name="inlineRadioOptions"
+                  id="inlineRadio4"
+                  value="Urgent"
+                />
+                <label class="form-check-label" for="inlineRadio4"
+                  >Urgent</label
+                >
+              </div>
+
+          </div>
+          <div class="modal-footer">
+            <a href="#" class="btn btn-success" data-dismiss="modal" id="update"
+              >Save Changes</a
+            >
+          </div>
+        </div>
+      </div>
+    </div>
+    <script
+      src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+      integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"
+      integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"
+      integrity="sha384-smHYKdLADwkXOn1EmN1qk/HfnUcbVRZyYmZ4qpPea6sjB/pTJ0euyQp0Mk8ck+5T"
+      crossorigin="anonymous"
+    ></script>
+    <script src="main.js"></script>
+  </body>
+</html>

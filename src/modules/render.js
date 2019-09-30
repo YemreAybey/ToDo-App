@@ -6,7 +6,7 @@ import storage from './storage';
 import { prArea, formPr, todoH, addF, updtButton, proFa } from './dom-select';
 import Project from './project';
 
-function contentChange(tag, head, pro, addF) {
+const contentChange = (tag, head, pro, addF) => {
   tag.addEventListener('click', () => {
     changeHeader(head, pro);
     const items = findTodos();
@@ -16,7 +16,7 @@ function contentChange(tag, head, pro, addF) {
   });
 }
 
-function removeProject(tag, pro, todoH, addF) {
+const removeProject = (tag, pro, todoH, addF) => {
   tag.addEventListener('click', e => {
     _.remove(storage, n => n == pro);
     localStorage.setItem('projectList', JSON.stringify(storage));
@@ -28,20 +28,20 @@ function removeProject(tag, pro, todoH, addF) {
   });
 }
 
-function changeHeader(tag, pro) {
+const changeHeader = (tag, pro) => {
   tag.innerHTML = pro.name.toUpperCase();
 }
 
-function clearContent(items) {
+const clearContent = (items) => {
   items.forEach(item => item.remove());
 }
 
-function findTodos() {
+const findTodos = () => {
   const items = document.querySelectorAll('.todo-item');
   return items;
 }
 
-function renderToDo(todo) {
+const renderToDo = (todo) => {
   const div = document.createElement('div');
   div.classList.add(
     'd-flex',
@@ -140,7 +140,7 @@ function renderToDo(todo) {
   const area = document.querySelector('.tasks');
   area.appendChild(div);
 }
-function renderPro(pro) {
+const renderPro = (pro) => {
   const div = document.createElement('div');
   div.classList.add('d-flex', 'justify-content-between', 'align-items-center');
   const span = document.createElement('span');
@@ -158,7 +158,7 @@ function renderPro(pro) {
   prArea.appendChild(div);
 }
 
-function createProject() {
+const createProject = () => {
   const prInput = document.querySelector('.prInput');
   if (prInput.value === '') {
     alert('please fill the form');

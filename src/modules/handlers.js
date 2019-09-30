@@ -4,7 +4,7 @@ import storage from './storage';
 import { renderToDo, createProject } from './render';
 import { formPr, todoForm, proFa } from './dom-select';
 
-function saveTd() {
+const saveTd = () => {
   const todoH = document.querySelector('.todoH');
   const date = document.getElementById('date').value;
   const title = document.getElementById('toDoText').value;
@@ -23,15 +23,15 @@ function saveTd() {
   }
 }
 
-function closeTodo() {
+const closeTodo = () => {
   todoForm.classList.toggle('d-none');
 }
 
-function showTodo() {
+const showTodo = () => {
   todoForm.classList.toggle('d-none');
 }
 
-function addPj() {
+const addPj = () => {
   formPr.classList.toggle('d-none');
   proFa.classList.toggle('fa-plus');
   proFa.classList.toggle('fa-minus');

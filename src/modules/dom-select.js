@@ -11,6 +11,7 @@ const addF = document.querySelector('.addF');
 const updtButton = document.getElementById('update');
 const proFa = document.querySelector('.pro-fa');
 const prSub = document.getElementById('prSub');
+const prInp = document.querySelector('.prInput');
 
 export {
   prArea,
@@ -24,5 +25,6 @@ export {
   addF,
   updtButton,
   proFa,
-  prSub
+  prSub,
+  prInp
 };

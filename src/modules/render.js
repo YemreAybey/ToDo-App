@@ -14,7 +14,7 @@ const contentChange = (tag, head, pro, addF) => {
     pro.toDos.forEach(todo => renderToDo(todo));
     addF.classList.remove('d-none');
   });
-}
+};
 
 const removeProject = (tag, pro, todoH, addF) => {
   tag.addEventListener('click', e => {
@@ -26,22 +26,22 @@ const removeProject = (tag, pro, todoH, addF) => {
     todoH.innerHTML = '';
     addF.classList.toggle('d-none');
   });
-}
+};
 
 const changeHeader = (tag, pro) => {
   tag.innerHTML = pro.name.toUpperCase();
-}
+};
 
-const clearContent = (items) => {
+const clearContent = items => {
   items.forEach(item => item.remove());
-}
+};
 
 const findTodos = () => {
   const items = document.querySelectorAll('.todo-item');
   return items;
-}
+};
 
-const renderToDo = (todo) => {
+const renderToDo = todo => {
   const div = document.createElement('div');
   div.classList.add(
     'd-flex',
@@ -100,7 +100,7 @@ const renderToDo = (todo) => {
     itag.classList.add('fas', 'fa-check-circle', 'ml-2', 'text-success');
     span2.classList.add('line-through');
   } else {
-    itag.classList.add('far', 'fa-circle', 'ml-2'); 
+    itag.classList.add('far', 'fa-circle', 'ml-2');
   }
 
   itag.addEventListener('click', e => {
@@ -139,8 +139,8 @@ const renderToDo = (todo) => {
   div.appendChild(span5);
   const area = document.querySelector('.tasks');
   area.appendChild(div);
-}
-const renderPro = (pro) => {
+};
+const renderPro = pro => {
   const div = document.createElement('div');
   div.classList.add('d-flex', 'justify-content-between', 'align-items-center');
   const span = document.createElement('span');
@@ -156,14 +156,15 @@ const renderPro = (pro) => {
   div.appendChild(h5tag);
   div.appendChild(span);
   prArea.appendChild(div);
-}
+};
 
-const createProject = (prInput) => {
+const createProject = prInput => {
   prInput = document.querySelector('.prInput');
   if (prInput.value === '') {
     alert('please fill the form');
   } else {
     const pro = new Project(prInput.value);
+    clearFormContent(prInput);
     storage.push(pro);
     localStorage.setItem('projectList', JSON.stringify(storage));
     formPr.classList.toggle('d-none');
@@ -171,12 +172,12 @@ const createProject = (prInput) => {
     proFa.classList.toggle('fa-minus');
     renderPro(pro);
   }
+};
 
-  clearFormContent(prInput);
-}
+const clearFormContent = (...args) => {
+  args.forEach(tag => {
+    tag.value = '';
+  });
+};
 
-const clearFormContent = (content) => {
-  content.value = '';
-}
-
-export { renderPro, renderToDo, createProject };
+export { renderPro, renderToDo, createProject, clearFormContent };

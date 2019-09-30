@@ -12,7 +12,7 @@ A simple To-Do application where you can create projects and tasks for projects.
 - date-fns
 - lodash
 
-#Prerequisites
+## Prerequisites
 
 - NPM
 - WEBPACK
@@ -46,7 +46,7 @@ npx webpack --watch
 
 open dist/index.html file on your browser and start to create projects and tasks.
 
-or just go here ==> [ToDoSS]()
+or just go here ==> [ToDoApp]()
 
 # Authors
 

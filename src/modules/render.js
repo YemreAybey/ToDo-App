@@ -100,7 +100,7 @@ const renderToDo = (todo) => {
     itag.classList.add('fas', 'fa-check-circle', 'ml-2', 'text-success');
     span2.classList.add('line-through');
   } else {
-    itag.classList.add('far', 'fa-circle', 'ml-2'); // fas fa-check-circle
+    itag.classList.add('far', 'fa-circle', 'ml-2'); 
   }
 
   itag.addEventListener('click', e => {
@@ -158,8 +158,8 @@ const renderPro = (pro) => {
   prArea.appendChild(div);
 }
 
-const createProject = () => {
-  const prInput = document.querySelector('.prInput');
+const createProject = (prInput) => {
+  prInput = document.querySelector('.prInput');
   if (prInput.value === '') {
     alert('please fill the form');
   } else {
@@ -171,6 +171,12 @@ const createProject = () => {
     proFa.classList.toggle('fa-minus');
     renderPro(pro);
   }
+
+  clearFormContent(prInput);
+}
+
+const clearFormContent = (content) => {
+  content.value = '';
 }
 
 export { renderPro, renderToDo, createProject };

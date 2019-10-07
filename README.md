@@ -46,7 +46,7 @@ npx webpack --watch
 
 open dist/index.html file on your browser and start to create projects and tasks.
 
-or just go here ==> [ToDoApp]()
+or just go here ==> [ToDoApp](https://yemreaybey.github.io/ToDo-App/)
 
 # Authors
 
